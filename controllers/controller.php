@@ -17,6 +17,10 @@ class controller {
         $data = $this->model->get("siswa");
         return $data;
     }
+    public function prosesSortData($data) {
+        $data = $this->model->getSort("siswa", $data->sortBy, $data->sortType);
+        include "advdata.php";
+    }
     public function tampilDataSpesifik($data) {
         $data = $this->model->getWhere("siswa", "nisn = $data");
         return $data;

@@ -19,6 +19,15 @@ class model {
         }
         return $data;
     }
+    function getSort($table, $sortby, $sorttype){
+        $sql = "SELECT * FROM {$table} order by {$sortby} {$sorttype}";
+        $result = $this->db->query($sql);
+        $data = array();
+        while($row = $result->fetch_object()){
+            $data[] = $row;
+        }
+        return $data;
+    }
     function getWhere($table, $where){
         $sql = "SELECT * FROM {$table} WHERE $where";
         $result = $this->db->query($sql);
